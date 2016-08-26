@@ -147,6 +147,14 @@ class m160822_025316_create_OrderManagerBase_table extends Migration
             'id' => $this->primaryKey(),
             'ordernum' => $this->string(20)->notNull(),
             'orderdate' => $this->dateTime()->notNull(),
+            'sonum' => $this->string(20),
+            'sodate' => $this->date(),
+            'sorecby' => $this->integer(),
+            'sorecdate' => $this->dateTime(),
+            'ivnum' => $this->string(20),
+            'ivdate' => $this->date(),
+            'ivrecby' => $this->integer(),
+            'ivrecdate' => $this->date(),
             'remark' => $this->string(100),
             'isupgrade' => $this->boolean()->notNull(),
             'refsn' => $this->string(20),
@@ -166,8 +174,6 @@ class m160822_025316_create_OrderManagerBase_table extends Migration
             'credate' => $this->dateTime()->notNull(),
             'chgby' => $this->integer(),
             'chgdate' => $this->dateTime(),
-            'recsoby' => $this->integer(),
-            'recsodate' => $this->dateTime(),
             'custprename' => $this->string(30),
             'custname' => $this->string(100)->notNull(),
             'custaddr01' => $this->string(50)->notNull(),
@@ -188,38 +194,29 @@ class m160822_025316_create_OrderManagerBase_table extends Migration
         // create an index
         $this->createIndex('ndx-order_ordernum', 'order', 'ordernum', TRUE);
         $this->createIndex('ndx-order_creby', 'order', 'creby');
+        $this->createIndex('ndx-order_chgby', 'order', 'chgby');
+        $this->createIndex('ndx-order_sorecby', 'order', 'sorecby');
+        $this->createIndex('ndx-order_ivrecby', 'order', 'ivrecby');
         $this->createIndex('ndx-order_stmasid', 'order', 'stmasid');
         $this->createIndex('ndx-order_status', 'order', 'status');
         
         // add foreignkey
         $this->addForeignKey('fk-order_stmasid-stmas_id', 'order', 'stmasid', 'stmas', 'id', 'CASCADE');
         $this->addForeignKey('fk-order_tqucod-istab_id', 'order', 'tqucod', 'istab', 'id', 'CASCADE');
+        $this->addForeignKey('fk-order_dlvby-istab_id', 'order', 'dlvby', 'istab', 'id', 'CASCADE');
         $this->addForeignKey('fk-order_creby-user_id', 'order', 'creby', 'user', 'id', 'CASCADE');
         $this->addForeignKey('fk-order_chgby-user_id', 'order', 'chgby', 'user', 'id', 'CASCADE');
-        $this->addForeignKey('fk-order_recsoby-user_id', 'order', 'recsoby', 'user', 'id', 'CASCADE');
-        $this->addForeignKey('fk-order_dlvby-istab_id', 'order', 'dlvby', 'istab', 'id', 'CASCADE');
+        $this->addForeignKey('fk-order_sorecby-user_id', 'order', 'sorecby', 'user', 'id', 'CASCADE');
+        $this->addForeignKey('fk-order_ivrecby-user_id', 'order', 'ivrecby', 'user', 'id', 'CASCADE');
         
         
         // ## CREATE TABLE OESO ##
-        $this->createTable('oeso', [
-            'id' => $this->primaryKey(),
-            ''
-        ], $tableOptions);
         
         // ## CREATE TABLE OESOIT ##
-        $this->createTable('oesoit', [
-            
-        ], $tableOptions);
         
         // ## CREATE TABLE ARTRN ##
-        $this->createTable('artrn', [
-            
-        ], $tableOptions);
         
         // ## CREATE TABLE STCRD ##
-        $this->createTable('stcrd', [
-            
-        ], $tableOptions);
     }
 
     /**
@@ -238,12 +235,16 @@ class m160822_025316_create_OrderManagerBase_table extends Migration
         // ## DOWN TABLE ORDER ##
         $this->dropForeignKey('fk-order_stmasid-stmas_id', 'order');
         $this->dropForeignKey('fk-order_tqucod-istab_id', 'order');
+        $this->dropForeignKey('fk-order_dlvby-istab_id', 'order');
         $this->dropForeignKey('fk-order_creby-user_id', 'order');
         $this->dropForeignKey('fk-order_chgby-user_id', 'order');
-        $this->dropForeignKey('fk-order_recsoby-user_id', 'order');
-        $this->dropForeignKey('fk-order_dlvby-istab_id', 'order');
+        $this->dropForeignKey('fk-order_sorecby-user_id', 'order');
+        $this->dropForeignKey('fk-order_ivrecby-user_id', 'order');
         $this->dropIndex('ndx-order_ordernum', 'order');
         $this->dropIndex('ndx-order_creby', 'order');
+        $this->dropIndex('ndx-order_chgby', 'order');
+        $this->dropIndex('ndx-order_sorecby', 'order');
+        $this->dropIndex('ndx-order_ivrecby', 'order');
         $this->dropIndex('ndx-order_stmasid', 'order');
         $this->dropIndex('ndx-order_status', 'order');
         $this->dropTable('order');
