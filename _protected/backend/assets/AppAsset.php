@@ -29,8 +29,10 @@ class AppAsset extends AssetBundle
     
     public $css = [
         'css/site.css',
+        'css/esg_style.css'
     ];
     public $js = [
+        'js/esg_script.js'
     ];
     
     public $depends = [

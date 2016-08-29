@@ -1,0 +1,37 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29 ส.ค. 2559, 16:16:48
+    Author     : WeeTee
+*/
+table.table-header-bordered th {
+    border-bottom: 1px solid #cccccc !important;
+}
+
+.link {
+    display: inline-block;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.link-red {
+    color: #e00200;
+}
+.link-red:hover {
+    color: #ff0000;
+}
+.link-green {
+    color: #006600;
+}
+.link-green:hover {
+    color: #009900;
+}
+.link-blue {
+    color: #0052cc;
+}
+.link-blue:hover {
+    color: #0066ff;
+}

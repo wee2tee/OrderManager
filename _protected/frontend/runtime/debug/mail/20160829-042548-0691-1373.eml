@@ -1,0 +1,26 @@
+Message-ID: <8c2d91d20c887e210e5c60ab50099819@localhost>
+Date: Mon, 29 Aug 2016 04:25:43 +0200
+Subject: =?utf-8?Q?=E0=B8=97=E0=B8=94=E0=B8=AA=E0=B8=AD?=
+ =?utf-8?Q?=E0=B8=9A=E0=B8=AA=E0=B9=88=E0=B8=87?=
+ =?utf-8?Q?=E0=B9=80=E0=B8=A1=E0=B8=A5=E0=B9=8C?=
+ =?utf-8?Q?=E0=B8=88=E0=B8=B2=E0=B8=81?= Yii2
+From: wintinlnw@gmail.com
+To: weerawat.36@gmail.com
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="_=_swift_v4_1472437543_f33008804f4f57deb5c3c89129f4bf90_=_"
+
+
+--_=_swift_v4_1472437543_f33008804f4f57deb5c3c89129f4bf90_=_
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+=E0=B8=97=E0=B8=94=E0=B8=AA=E0=B8=AD=E0=B8=9A Test text body
+
+--_=_swift_v4_1472437543_f33008804f4f57deb5c3c89129f4bf90_=_
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+=E0=B8=97=E0=B8=94=E0=B8=AA=E0=B8=AD=E0=B8=9A <b>Test html body</b>
+
+--_=_swift_v4_1472437543_f33008804f4f57deb5c3c89129f4bf90_=_--
