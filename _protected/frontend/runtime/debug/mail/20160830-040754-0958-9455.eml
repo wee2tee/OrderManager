@@ -1,0 +1,49 @@
+Message-ID: <967b3beea9bd1874dd4f1df9c150ae98@localhost>
+Date: Tue, 30 Aug 2016 04:07:48 +0200
+Subject: Account activation for ESG Order Manager
+From: ESG Order Manager robot <weerawat.36@gmail.com>
+To: weerawat.36@gmail.com
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="_=_swift_v4_1472522868_144358a630991eabf8ea2233115b4d2f_=_"
+
+
+--_=_swift_v4_1472522868_144358a630991eabf8ea2233115b4d2f_=_
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hello WeeTee,
+
+Follow this link to activate your account:
+
+Please, =
+click here to activate your account.
+
+--_=_swift_v4_1472522868_144358a630991eabf8ea2233115b4d2f_=_
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns=3D"http://www.w3.org/1999/=
+xhtml">
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/ht=
+ml; charset=3DUTF-8" />
+    <title></title>
+    </head>
+<body>
+    =
+   =20
+Hello WeeTee,
+
+Follow this link to activate your account:
+
+<=
+a href=3D"http://localhost:3636/OrderManager/site/activate-account?token=3D=
+lcEPZ021lFT_5NxGC3Ii2b729weKNadq_1472522864">Please, click here to activate=
+ your account.</a>    </body>
+</html>
+
+
+--_=_swift_v4_1472522868_144358a630991eabf8ea2233115b4d2f_=_--

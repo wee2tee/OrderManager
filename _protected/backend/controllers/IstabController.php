@@ -42,7 +42,7 @@ class IstabController extends Controller {
                         'allow' => TRUE,
                     ],
                     [
-                        'actions' => ['logout', 'qucod'],
+                        'actions' => ['logout', 'qucod', 'qucod_edit'],
                         'allow' => TRUE,
                         'roles' => ['@']
                     ],
@@ -67,12 +67,13 @@ class IstabController extends Controller {
     }
 
     public function actionQucod(){
-//        $query = new Query();
-//        $count = $query->from('istab');
-//        
-//        $item = $query->select('*')->from('istab')->where(['tabtyp' => self::TABTYP_Qucod ])->all();
+        //$query = new Query();
+        //$count = $query->from('istab');
+        //$item = $query->select('*')->from('istab')->where(['tabtyp' => self::TABTYP_Qucod ])->all();
+
         $dataProvider = new \yii\data\ActiveDataProvider([
             'query' =>  Istab::find()->select('*')->where(['tabtyp' => self::TABTYP_Qucod]),
+            'sort' => ['defaultOrder' => ['typcod' => SORT_ASC]],
             'pagination' => [
                 'pageSize' => 10,
             ]
@@ -83,6 +84,20 @@ class IstabController extends Controller {
             'dataProvider' => $dataProvider,
             'qucod' => $qucod,
         ]);
-//        return $this->render('index');
     }
+    
+    public function actionQucod_edit($id){
+        $qucod = Istab::findOne(['id' => $id]);
+        
+        if($qucod->load(Yii::$app->request->post()) && $qucod->save()){
+            return $this->redirect('index');
+        }
+        else{
+            return $this->render('qucod_edit', ['model' => $qucod]);
+        }
+    }
+    
+//    public function actionQucod_edit(){
+//        return $this->render('qucod_edit');
+//    }
 }

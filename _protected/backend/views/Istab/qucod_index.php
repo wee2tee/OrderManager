@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ListView;
+use yii\grid\GridView;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
@@ -17,7 +18,7 @@ $this->title = Yii::t('app', "หน่วยนับ"); //Yii::t('app', Yii::$
     </h3>
 
     <hr class="top">
-    <table class="table table-hover table-header-bordered">
+<!--    <table class="table table-hover table-header-bordered">
         <thead>
             <tr>
                 <th>รหัส</th>
@@ -46,7 +47,40 @@ $this->title = Yii::t('app', "หน่วยนับ"); //Yii::t('app', Yii::$
             <?php }
             ?>
         </tbody>
-    </table>
+    </table>-->
+    
+    <?php
+    echo GridView::widget([
+            'dataProvider' => $dataProvider,
+            'columns' => [
+                ['attribute' => 'id', 'visible' => false],
+                ['attribute' => 'tabtyp', 'visible' => false],
+                ['attribute' => 'typcod', 'label' => 'รหัส', 'format' => 'text'],
+                'abbreviate_th:text:ชื่อย่อ(ไทย)',
+                'abbreviate_en:text:ชื่อย่อ(Eng.)',
+                'typdes_th:text:ชื่อเต็ม(ไทย)',
+                'typdes_en:text:ชื่อเต็ม(Eng.)',
+                [
+                    'attribute' => '',
+                    'format' => 'raw',
+                    'value' => function($model, $key, $index, $column){
+                        $btn_info = '<a href="#" data-id="' . $model->id . '" onclick="return $(this).Remove(event)" class="link link-blue"><i class="fa fa-info-circle"></i></a>';
+                        $btn_edit = '<a href="qucod_edit?id=' . $model->id . '" class="link link-green"><i class="fa fa-edit"></i></a>';
+                        $btn_delete = '<a href="#" data-id="' . $model->id . '" onclick="return $(this).Remove(event)" class="link link-red"><i class="fa fa-remove"></i></a>';
+                        return $btn_info . $btn_edit . $btn_delete;
+                    }
+                ],
+            ],
+            'summary' => 'แสดงรายการที่ {begin} - {end} จากทั้งหมด {totalCount} รายการ',
+            'layout' => "{summary}\n{items}\n{pager}",
+            'tableOptions' => ['class' => 'table table-hover table-header-bordered odd-even', 'style' => 'margin-top: 10px;'],
+            'rowOptions'=>function ($model, $key, $index, $grid){
+                $class=$index%2?'odd':'even';
+                return array('key'=>$key,'index'=>$index,'class'=>$class);
+            },
+        ]);
+    ?>
+    
     <?php
 //    echo ListView::widget([
 //        'summary' => false,

@@ -66,7 +66,7 @@ class Istab extends \yii\db\ActiveRecord
             'id' => 'ID',
             'tabtyp' => 'Tabtyp',
             'typcod' => 'Typcod',
-            'abbreviate_th' => 'Abbreviate Th',
+            'abbreviate_th' => 'ชื่อย่อ(ไทย)',
             'abbreviate_en' => 'Abbreviate En',
             'typdes_th' => 'Typdes Th',
             'typdes_en' => 'Typdes En',
